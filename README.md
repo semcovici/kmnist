@@ -347,84 +347,85 @@ O data augmentation foi realizado utilizando a classe `ImageDataGenerator` do ke
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.824065</td>
-      <td>0.8150</td>
-      <td>0.819507</td>
+      <td>0.948090</td>
+      <td>0.9680</td>
+      <td>0.957942</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.694129</td>
-      <td>0.7330</td>
-      <td>0.713035</td>
+      <td>0.887888</td>
+      <td>0.8870</td>
+      <td>0.887444</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.561479</td>
-      <td>0.6530</td>
-      <td>0.603791</td>
+      <td>0.908429</td>
+      <td>0.8730</td>
+      <td>0.890362</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.794521</td>
-      <td>0.8120</td>
-      <td>0.803165</td>
+      <td>0.862555</td>
+      <td>0.9790</td>
+      <td>0.917096</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.667728</td>
-      <td>0.6290</td>
-      <td>0.647786</td>
+      <td>0.904762</td>
+      <td>0.8930</td>
+      <td>0.898842</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.861219</td>
-      <td>0.6640</td>
-      <td>0.749859</td>
+      <td>0.983462</td>
+      <td>0.8920</td>
+      <td>0.935501</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.708824</td>
-      <td>0.7230</td>
-      <td>0.715842</td>
+      <td>0.885446</td>
+      <td>0.9430</td>
+      <td>0.913317</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.763033</td>
-      <td>0.4830</td>
-      <td>0.591549</td>
+      <td>0.967391</td>
+      <td>0.8900</td>
+      <td>0.927083</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>0.603650</td>
-      <td>0.8270</td>
-      <td>0.697890</td>
+      <td>0.904374</td>
+      <td>0.8890</td>
+      <td>0.896621</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.680851</td>
-      <td>0.7040</td>
-      <td>0.692232</td>
+      <td>0.918787</td>
+      <td>0.9390</td>
+      <td>0.928783</td>
     </tr>
     <tr>
       <th>accuracy</th>
-      <td>0.704300</td>
-      <td>0.7043</td>
-      <td>0.704300</td>
+      <td>0.915300</td>
+      <td>0.9153</td>
+      <td>0.915300</td>
     </tr>
     <tr>
       <th>macro avg</th>
-      <td>0.715950</td>
-      <td>0.7043</td>
-      <td>0.703466</td>
+      <td>0.917118</td>
+      <td>0.9153</td>
+      <td>0.915299</td>
     </tr>
     <tr>
       <th>weighted avg</th>
-      <td>0.715950</td>
-      <td>0.7043</td>
-      <td>0.703466</td>
+      <td>0.917118</td>
+      <td>0.9153</td>
+      <td>0.915299</td>
     </tr>
   </tbody>
 </table>
+
 </div>
 
 <div style="width: 45%;">
