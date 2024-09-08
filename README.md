@@ -1,7 +1,8 @@
 # Sobre o trabalho
+
 Este trabalho trata-se de um exercício programa (EP) da  disciplina MAC5921 - Deep Learning do programa de pós-graduação em Ciência da Computação do IME-USP. A proposta desse trabalho consiste em comparar o desempenho de redes neurais convolucionais e redes neurais fully connected simples para a classificação de imagens.
 
-O conjunto de dados utilizado para este trabalho é o [Kuzushiji-MNIST](https://github.com/rois-codh/kmnist), no qual esse repositório é um fork do repositório original que contém mais informações sobre o cunjunto de dados. Nesse repositório há a possibilidade de download de 3 datasets (Kuzushiji-MNIST, Kuzushiji-49 e Kuzushiji-Kanji), o escolhido para esse trabalho foi o Kuzushiji-MNIST dado ser o conjunto com a menor quantidade de classes, o que facilita os experimentos. 
+O conjunto de dados utilizado para este trabalho é o [Kuzushiji-MNIST](https://github.com/rois-codh/kmnist). Nesse repositório há a possibilidade de download de 3 datasets (Kuzushiji-MNIST, Kuzushiji-49 e Kuzushiji-Kanji), o escolhido para esse trabalho foi o Kuzushiji-MNIST dado ser o conjunto com a menor quantidade de classes, o que facilita os experimentos. 
 
 O Kuzushiji-MNIST possui um total de 10 classes, sendo cada uma delas um caracter do Hiragana. Uma representação de cada uma das classes pode ser vista abaixo, sendo cada "linha" uma classe, a primeira "coluna" sendo um bom exemplo (digital) do caracter e as outras sendo exemplos escritos à mão.
 

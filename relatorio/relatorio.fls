@@ -313,6 +313,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT ../images/kmnist_examples.png
 INPUT ../images/kmnist_examples.png
 INPUT ../images/kmnist_examples.png
@@ -335,14 +341,8 @@ INPUT ../images/models/model_fcnn_graph.png
 INPUT ../images/models/model_fcnn_graph.png
 INPUT ../images/models/model_fcnn_graph.png
 INPUT ../images/models/model_fcnn_graph.png
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvbo7t.tfm
 INPUT ../images/results_plt/cnn_loss_progress.png
 INPUT ../images/results_plt/cnn_loss_progress.png

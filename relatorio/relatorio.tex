@@ -47,14 +47,11 @@
 \maketitle
      
 \begin{resumo} 
-Nesse trabalho foi explorado a comparação entre modelo de redes neurais fully connected (FCNN) e redes neurais convolucionais (CNN) para a classificação de imagens do conjunto Kuzushiji-MNIST, que é um conjunto de imagens de 10 possíveis caracteres do Hiragana. Além do experimento básico da comparação entre os dois algoritmos, foi realizado testes removendo a camada de polling da CNN e, também, realizando uma etapa de \textit{data augmentation} em ambos os algoritmos aumentando o conjunto de treino em 10 vezes. Também foram exploradas outras questões de pesquisa, como a visualização dos filtros da CNN.
-
+Este trabalho explora a comparação entre redes neurais fully connected (FCNN) e redes neurais convolucionais (CNN) para a classificação de imagens do conjunto Kuzushiji-MNIST, que contém imagens de 10 caracteres do Hiragana. Além da comparação básica entre os dois modelos, foram realizados testes removendo a camada de pooling da CNN e aplicando a técnica de \textit{data augmentation}, aumentando o conjunto de treino em 10 vezes. Também foram exploradas questões de pesquisa como a visualização dos filtros da CNN.
 \end{resumo}
 
 
-\section{Introdução}
-Este trabalho trata-se de um exercício programa (EP) da  disciplina MAC5921 - Deep Learning do programa de pós-graduação em Ciência da Computação do IME-USP. A proposta desse trabalho consiste em comparar o desempenho de CNN (Convolucional Neural Network) e FCNN (Fully Connected Neural Network) para a classificação de imagens. Ao longo desse trabalho, serão respondidas algumas das perguntas levantadas no enunciado do trabalho, sendo elas:
-
+\section{Introdução} Este trabalho trata-se de um exercício programa (EP) da disciplina MAC5921 - Deep Learning, do programa de pós-graduação em Ciência da Computação do IME-USP. A proposta deste trabalho consiste em comparar o desempenho de CNNs (Convolutional Neural Networks) e FCNNs (Fully Connected Neural Networks) para a classificação de imagens. Ao longo do trabalho, algumas questões levantadas no enunciado serão abordadas:
 \begin{itemize}
   \item Q1 - Como a performance de uma rede neural totalmente conectada se compara com a de uma CNN ao classificar imagens de um dataset específico?
   \item Q2 - Qual é a distribuição das classes no dataset que você escolheu? Existem classes desbalanceadas?
@@ -70,9 +67,9 @@ Este trabalho trata-se de um exercício programa (EP) da  disciplina MAC5921 - D
 
 \subsection{Conjunto de dados}
 
-O conjunto de dados utilizado para este trabalho é o Kuzushiji-MNIST \cite{DBLP:journals/corr/abs-1812-01718} disponivel em um repositório do GitHub\footnote{https://github.com/rois-codh/kmnist}. Nesse repositório há a possibilidade de download de 3 datasets (Kuzushiji-MNIST, Kuzushiji-49 e Kuzushiji-Kanji), o escolhido para esse trabalho foi o Kuzushiji-MNIST dado ser o conjunto com a menor quantidade de classes, o que facilita os experimentos. 
+O conjunto de dados utilizado neste trabalho é o Kuzushiji-MNIST \cite{DBLP:journals/corr/abs-1812-01718}, disponível em um repositório do GitHub\footnote{https://github.com/rois-codh/kmnist}. Embora o repositório contenha três datasets (Kuzushiji-MNIST, Kuzushiji-49 e Kuzushiji-Kanji), foi escolhido o Kuzushiji-MNIST por ser o que possui a menor quantidade de classes, facilitando os experimentos.
 
-O Kuzushiji-MNIST possui um total de 10 classes, sendo cada uma delas um caracter do Hiragana. Uma representação de cada uma das classes pode ser vista abaixo, sendo cada ``linha" uma classe, a primeira ``coluna" sendo um bom exemplo (digital) do caracter e as outras sendo exemplos escritos à mão.
+O Kuzushiji-MNIST contém um total de 10 classes, cada uma representando um caractere do Hiragana. Uma representação das classes pode ser vista na Figura~\ref{fig:kmnist-examples}, onde a primeira coluna mostra exemplos digitais dos caracteres, e as demais colunas exibem exemplos manuscritos.
 
 \begin{figure}[ht]
   \centering
@@ -81,25 +78,22 @@ O Kuzushiji-MNIST possui um total de 10 classes, sendo cada uma delas um caracte
   \label{fig:kmnist-examples}
 \end{figure}
 
-Respondendo Q2, o conjunto de dados já possui uma separação de treino e teste, sendo 60 mil imagens no conjunto de treino e 10 mil no de teste. Além disso, o conjunto é perfeitamente balanceado, possuindo exatamente 10\% das observações para cada uma das classes, sendo assim 6 mil observações para cada classe no treino e mil para o teste.
-
-As imagens do cojunto de dados são de baixa resolução, tendo dimensões (28,28,1). As imagens são disponibilizadas em formato numpy, o que facilita a leitura dos dados.
-
+Respondendo à Q2, o dataset já está dividido em conjuntos de treino e teste, contendo 60 mil imagens para treino e 10 mil para teste. Cada classe possui exatamente 10\% das observações, ou seja, 6 mil imagens para treino e mil para teste. As imagens têm dimensões de 28x28x1 e são disponibilizadas no formato numpy, facilitando a leitura dos dados.
 
 \subsection{Experimentos realizados}
 
-Os modelos treinados são CNN  e FCNN, além de testar algumas alterações para ver se essas melhoram ou pioram o desempenho. Assim resultando nos seguintes experimentos:
+Os modelos treinados foram uma CNN e uma FCNN, além de variações para investigar se alterações poderiam melhorar o desempenho. Os experimentos foram os seguintes:
 
 \begin{enumerate}
   \item \textbf{CNN}: modelo CNN simples
   \item \textbf{FCNN}: modelo FCNN simples 
-  \item \textbf{CNN com data augmentation}: modelo CNN com dados aumentados em 10x
-  \item \textbf{FCNN com data augmentation}: modelo FNN com dados aumentados em 10x
+  \item \textbf{CNN com data augmentation}: modelo CNN com o conjunto de treino aumentado em 10x
+  \item \textbf{FCNN com data augmentation}: modelo FNN com o conjunto de treino aumentado em 10x
   \item \textbf{CNN sem camada de polling}: modelo CNN removendo a camada de polling
 \end{enumerate}
 
-Os modelos CNN e FCNN seguem as estruturas demonstradas na Figuras \ref{fig:model_cnn_graph} e \ref{fig:model_fcnn_graph}, respectivamente. Tendo apenas a mudança de retirar a camada de max\_polling2d no caso do experimento ``CNN sem camadda de polling".
 
+As arquiteturas da CNN e FCNN estão representadas nas Figuras \ref{fig:model_cnn_graph} e \ref{fig:model_fcnn_graph}, respectivamente. No experimento “CNN sem camada de pooling”, a camada de max pooling foi removida.
 
 \begin{figure}[H]
   \centering
@@ -118,10 +112,9 @@ Os modelos CNN e FCNN seguem as estruturas demonstradas na Figuras \ref{fig:mode
   \end{minipage}
 \end{figure}
 
-Respondendo Q3, vemos que a principal diferença das implementações realizadas nesse trabalho da CNN e da FCNN são as camadas convolucionais e a camada de polling da CNN. Fora isso, ambas as arquiteturas são similares, já que a CNN possui uma rede fully connected no final dela.
+Respondendo à Q3, vemos que a principal diferença das implementações realizadas nesse trabalho da CNN e da FCNN são as camadas convolucionais e a camada de polling da CNN. Fora isso, ambas as arquiteturas são similares, já que a CNN possui uma rede fully connected no final dela.
 
-Uma das exigências no enunciado é que o modelo FCNN e CNN tenham uma quantidade similar de parâmetros treinaveis. Assim sendo, o modelo FCNN (Figura \ref{fig:model_fcnn_graph}) possui 1333770 parâmtros treináveis, enquanto o modelo de CNN (Figura \ref{fig:model_cnn_graph}) possui 1199882 parâmetros treináveis.
-
+O modelo FCNN contém 1.333.770 parâmetros treináveis, enquanto o modelo CNN tem 1.199.882, mantendo a quantidade de parâmetros similar, como exigido.
 
 Para realizar o treinamento, predição e outras tarefas relacionadas aos modelos anteriores, foi utilizado o tensorflow \cite{tensorflow2015-whitepaper} e keras \cite{chollet2015keras}.
 
@@ -130,7 +123,7 @@ O código utilizadado para a criação da CNN é inspirado no código de uma CNN
 Abaixo segue algumas configurações feitas nos modelos, fora as demostradas nas Figuras \ref{fig:model_cnn_graph} e \ref{fig:model_fcnn_graph}:
 
 \begin{enumerate}
-  \item \textbf{Early stopping:}Os modelos não possuem um número fixo de épocas para o treinamento, foi estabelecido um número arbitráriamente grande de 10 mil épocas e, quando o valor de loss na validação não diminui em 10 épocas seguidas o treinamento é parado e o melhor modelo escolhido é aquele que possui o menor valor de loss na validação. 
+  \item \textbf{Early stopping:} Os modelos não possuem um número fixo de épocas para o treinamento, foi estabelecido um número arbitráriamente grande de 10 mil épocas e, quando o valor de loss na validação não diminui em 10 épocas seguidas o treinamento é parado e o melhor modelo escolhido é aquele que possui o menor valor de loss na validação. 
   \item \textbf{Reduce learning rate on plateu:} A taxa de aprendizado dos modelos inicia como 0.001, porém, quando o valor de loss na validação começa a ter poucas variações, essa taxa de aprendizado é reduzida. Isso faz com que os pesos mudem menos ao longo das épocas quando o treinamento está chegando em um mínimo, assim trazendo uma mais precisão. 
   \item \textbf{Função de loss:} A função de loss escolhida foi a \textit{categorical crossentropy}, pois dentro as funções de loss implementadas no keras é a que mais atendia as especificações do projeto.
   \item \textbf{Otimizador:} O otimizador escolhido foi o adadelta
@@ -139,8 +132,7 @@ Abaixo segue algumas configurações feitas nos modelos, fora as demostradas nas
 
 \subsection{Execução do código}
 
-O código utilizado para gerar os resultados apresentados nesse relatório se encontra em um repositório do GitHub \footnote{https://github.com/semcovici/kmnist-classification} e as instruções para a execução se encontram no arquivo README.md na seção ``Instruções".
-
+O código utilizado para gerar os resultados apresentados nesse relatório se encontra junto a esse relatório na entrega do trabalho e em um repositório do GitHub \footnote{https://github.com/semcovici/kmnist-classification}. As instruções para a execução se encontram no arquivo README.md na seção ``Instruções".
 
 \section{Resultados}
 
@@ -171,14 +163,13 @@ macro avg & 0.8874 & 0.9223 & 0.8902 & 0.8904 & 0.9192 \\
 \label{table:results_f1}
 \end{table}
 
-É possível ver que, em todos os modelos, o desempenho em cada classe é bastante consistente, não tenho classes que possuem uma grande vantagem em detrimento das outras e, também, não há classes em grande desvantagem. 
+É possível observar que, em todos os modelos, o desempenho em cada classe é bastante consistente, não havendo classes que apresentam uma grande vantagem em detrimento de outras e, também, não há classes em grande desvantagem.
 
-Considerando o \textit{F1-Score macro}, vemos que os diferentes experimentos não causaram grandes diferenças nos resultados, tendo o pior resultado sendo a CNN com 88.74\% de \textit{F1-Score macro} e o melhor sendo a CNN com data augmentation com 92.23\% de \textit{F1-Score macro}.
+Considerando o \textit{F1-Score macro}, vemos que os diferentes experimentos não causaram grandes diferenças nos resultados, sendo o pior resultado da CNN com 88,74\% de \textit{F1-Score macro} e o melhor da CNN com \textit{data augmentation}, com 92,23\%.
 
-Remover a camada de polling traz ganhos aparentemente não significativos ao desempenho do modelo no conjunto de teste, tendo em vista que há uma diferença de aproximadamente 0.26\% nos resultados. Já a adição de \textit{data augmentation} se mostra eficiente na melhora do desempenho nos dois algoritmos testados, FCNN e CNN. 
+A remoção da camada de pooling traz ganhos aparentemente não significativos ao desempenho do modelo no conjunto de teste, tendo em vista que há uma diferença de aproximadamente 0,26\% nos resultados. Já a adição de \textit{data augmentation} se mostra eficiente na melhoria do desempenho nos dois algoritmos testados, FCNN e CNN.
 
-
-Por outro lado, quando olhamos a curva de aprendizado da CNN (Figura \ref{fig:cnn_loss_progress}) e da FCNN (Figura \ref{fig:fcnn_loss_progress}), vemos que a CNN converge por volta de 600 épocas, enquanto a FCNN precisa de quase o dobro de épocas para convergir.
+Por outro lado, ao observar a curva de aprendizado da CNN (Figura \ref{fig:cnn_loss_progress}) e da FCNN (Figura \ref{fig:fcnn_loss_progress}), vemos que a CNN converge por volta de 600 épocas, enquanto a FCNN precisa de quase o dobro de épocas para convergir.
 
 \begin{figure}[H]
 \centering
@@ -197,8 +188,7 @@ Por outro lado, quando olhamos a curva de aprendizado da CNN (Figura \ref{fig:cn
 \end{minipage}
 \end{figure}
 
-Já a remoção da camada de polling da CNN faz o modelo convergir mais rápido, porém vemos um \textit{overfitting} do modelo no treino, tendo um loss menor que 0.25 no cojunto de treino no fim do treinamento, que é menor que o loss final do conjunto de treino na CNN tradicional, como demostrado na Figura \ref{fig:cnn_sem_polling_loss_progress}. Assim, responde-se Q5.
-
+A remoção da camada de pooling da CNN faz o modelo convergir mais rápido, porém vemos um \textit{overfitting} do modelo no treino, com um \textit{loss} menor que 0,25 no conjunto de treino ao final do treinamento, que é inferior ao \textit{loss} final do conjunto de treino na CNN tradicional, conforme mostrado na Figura \ref{fig:cnn_sem_polling_loss_progress}. Assim, responde-se à Q5.
 
 \begin{figure}[ht]
   \centering
@@ -207,7 +197,7 @@ Já a remoção da camada de polling da CNN faz o modelo convergir mais rápido,
   \label{fig:cnn_sem_polling_loss_progress}
 \end{figure}
 
-A adição do \textit{data augmentation} na CNN traz uma redução drástica do \textit{overfitting} do modelo no treinamento, tendo o loss ao longo das épocas no treino e validação bem próximos, conforme demostrado na Figura \ref{fig:cnn_com_data_augmentation_loss_progress}. Já na FCNN a adição da etapa de data augmentation também traz uma redução no \textit{overfitting}, porém não tanto quando a CNN, conforme demostrado na Figura \ref{fig:fcnn_com_data_augmentation_loss_progress}. Além disso, a adição de \textit{data augmentation} mostra uma redução no número de épocas para convergir. Em contraponto a isso, a adição de mais dados faz com que seja mais custoso computacionamente treinar o modelo, de forma que a redução de épocas não diminui o tempo de treinamento. 
+A adição de \textit{data augmentation} na CNN traz uma redução drástica do \textit{overfitting} do modelo no treinamento, com o \textit{loss} ao longo das épocas no treino e validação bem próximos, conforme mostrado na Figura \ref{fig:cnn_com_data_augmentation_loss_progress}. Já na FCNN, a adição de \textit{data augmentation} também traz uma redução no \textit{overfitting}, porém não tanto quanto na CNN, conforme mostrado na Figura \ref{fig:fcnn_com_data_augmentation_loss_progress}. Além disso, a adição de \textit{data augmentation} demonstra uma redução no número de épocas para convergir. Em contraponto a isso, a adição de mais dados torna o treinamento computacionalmente mais custoso, de forma que a redução de épocas não diminui o tempo de treinamento.
 
 \begin{figure}[H]
   \centering
@@ -227,8 +217,7 @@ A adição do \textit{data augmentation} na CNN traz uma redução drástica do 
 \end{figure}
 
 
-Para responder Q6 e Q7, nas Figuras \ref{fig:model_cnn_layer_0_kernel_plot} e \ref{fig:model_cnn_layer_1_kernel_plot}, temos os filtros formados após o treinamento do modelo CNN nas camadas convolucionais. Não há algum padrão interpretável nesses filtros que nos mostre algum aspecto que o modelo aprendeu nas imagens. Isso não significa que o modelo não aprendeu nada nas imagens, isso apenas significa que a análise dos filtros gerados não resulta em nenhum aspecto de melhor entendimento do funcionamento do modelo.  
-
+Para responder à Q6 e à Q7, nas Figuras \ref{fig:model_cnn_layer_0_kernel_plot} e \ref{fig:model_cnn_layer_1_kernel_plot}, temos os filtros formados após o treinamento do modelo CNN nas camadas convolucionais. Não há um padrão interpretável nesses filtros que mostre algum aspecto que o modelo aprendeu nas imagens. Isso não significa que o modelo não aprendeu nada, apenas que a análise dos filtros gerados não resulta em um melhor entendimento do funcionamento do modelo.
 
 \begin{figure}[H]
   \centering
@@ -249,20 +238,19 @@ Para responder Q6 e Q7, nas Figuras \ref{fig:model_cnn_layer_0_kernel_plot} e \r
 
   Esse padrão de ``filtros não interpretáveis" se repete  na versão sem camada de polling e na versão com \textit{data augmentation}.
 
-  Respondendo Q8, os pesos de uma rede neural não podem ser vistos da mesma forma que os filtros de uma CNN. Os filtros da CNN são uma forma direta de extrair características de imagens e, por mais que as características não sejam interpretáveis, como as de cima, elas são visualizáveis, já os pessos de uma rede fully connected não são visualizáveis da mesma forma. Além disso, usualmente, as imagens passam por uma etapa de ``flatten'' antes de passar em uma rede fully connected e isso faz com que as imagens virem um grande vetor de uma dimensão, perdendo completamente a forma original da imagem e sendo mais dificil de interpretar os padrões que o modelo está encontrando no treinamento.
+  Respondendo às Q4 e Q8, é importante entender as diferenças entre os pesos de uma rede fully connected e os filtros de uma CNN no processo de extração de características. Os filtros em uma CNN aplicam convoluções diretamente sobre as imagens, extraindo padrões locais, como bordas, texturas e formas, de maneira eficiente e preservando a estrutura espacial da imagem. Embora os filtros não sejam sempre interpretáveis visualmente, como mostrado anteriormente, eles são visualizáveis e oferecem uma compreensão parcial do que o modelo está aprendendo. Por outro lado, os pesos em uma rede fully connected não possuem essa representatividade visual direta, pois cada neurônio está conectado a todos os pixels, e as imagens geralmente passam por uma etapa de \textit{flatten}, que converte a imagem em um vetor unidimensional. Esse processo faz com que as informações espaciais da imagem original sejam perdidas, tornando mais difícil interpretar os padrões aprendidos pela rede.
 
-  Respondendo Q4, as operações de convolução em uma CNN ajudam na extração de características ao aplicar filtros que detectam padrões locais, como bordas, texturas e formas, diretamente nas imagens. Diferente das redes fully connected, onde cada neurônio está conectado a todos os pixels, as CNNs se concentram em regiões pequenas da imagem, capturando informações espaciais de maneira mais eficiente e preservando a estrutura da imagem. Além disso, a convolução reduz significativamente o número de parâmetros em comparação a uma fully connected, tornando o modelo menos propenso ao overfitting e mais capaz de generalizar.
+  As CNNs, ao se concentrarem em regiões locais da imagem através das convoluções, capturam melhor as informações espaciais em comparação às fully connected, que tratam todos os pixels de forma global e independente. Além disso, as CNNs reduzem significativamente o número de parâmetros treináveis, tornando o modelo mais eficiente e menos propenso ao \textit{overfitting}. Assim, enquanto as redes fully connected oferecem maior flexibilidade, as CNNs são mais eficazes na tarefa de extração de características visuais, o que explica seu melhor desempenho em tarefas relacionadas a imagens. Dessa forma, a diferença fundamental entre os pesos de uma fully connected e os filtros de uma CNN está na capacidade de representação e extração de padrões relevantes para a classificação de imagens.
 
 \section{Conclusão e limitações}
 
-Nesse trabalho foi explorado alguns experimentos para comparar a capacidade de aprendizado na tarefa de classificação de redes neurais \textit{fully connected} e redes neurais convolucionais. Os resultados obtidos no conjunto de treino de ambas as arquiteturas são bastante similares, por mais que a CNN seja levemente pior. Entretanto, a FCNN demora mais para convergir, gastando mais de 1.1 mil épocas para estabilizar, enquanto a CNN gasta por volta de 600 épocas, renpondendo assim Q1.
+Neste trabalho, foram explorados alguns experimentos para comparar a capacidade de aprendizado na tarefa de classificação entre redes neurais \textit{fully connected} (FCNN) e redes neurais convolucionais (CNN). Os resultados obtidos no conjunto de treino de ambas as arquiteturas são bastante similares, embora a CNN tenha um desempenho levemente inferior. Entretanto, a FCNN demora mais para convergir, necessitando de mais de 1,1 mil épocas para estabilizar, enquanto a CNN converge em aproximadamente 600 épocas, respondendo assim à Q1.
 
-Além disso, foi testado a técnica de \textit{data augmentation}, que trouxe uma melhoria nos resultados de ambas as arquiteturas no conjunto de teste. Porém a CNN com \textit{data augmentation} ficou levemente melhor que a FCNN.
+Além disso, foi testada a técnica de \textit{data augmentation}, que trouxe uma melhoria nos resultados de ambas as arquiteturas no conjunto de teste. No entanto, a CNN com \textit{data augmentation} obteve um desempenho levemente superior à FCNN.
 
-Por fim, testou-se a remoção da camada de polling da CNN, que não trouxe grandes ganhos e casou mais overfitting no treino.
+Por fim, testou-se a remoção da camada de pooling da CNN, que não resultou em grandes ganhos e causou um aumento no \textit{overfitting} durante o treino.
 
-Assim sendo, nesse trabalho foram exploradas todas as questões pedidas como ``Exploração mínima esperada" e ``Exploração adicional''. Contudo, não foi possível explorar dentro do tempo estipulado de entrega as mudanças de hiperparâmetros comentadas ao final de ``Exploração adicional'', a única questão abordadaa dessas é a aumentação de dados.
-
+Dessa forma, neste trabalho foram exploradas todas as questões solicitadas como "Exploração mínima esperada" e "Exploração adicional". Contudo, não foi possível investigar, dentro do prazo estipulado, as mudanças nos hiperparâmetros mencionadas ao final da seção "Exploração adicional". A única questão abordada dessa seção foi a aplicação de \textit{data augmentation}.
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
