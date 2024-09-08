@@ -35,7 +35,6 @@ def create_cnn_model(
     
     return model
 
-
 def create_fcnn_model(
     input_shape,
     num_classes,
@@ -44,14 +43,12 @@ def create_fcnn_model(
     optimizer="adadelta"
 ):
     model = Sequential()
-    model.add(Flatten(input_shape=input_shape)) 
-    model.add(Dense(512, activation='relu', input_shape=input_shape))
-    model.add(Dropout(0.5))
-    model.add(Dense(256, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(128, activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(num_classes, activation='softmax'))
+    model.add(Flatten(input_shape=input_shape))  # Camada Flatten para transformar a entrada em 1D
+    model.add(Dense(1024, activation='relu'))    # Primeira camada densa com mais neurônios
+    model.add(Dropout(0.25))                     # Dropout para evitar overfitting
+    model.add(Dense(512, activation='relu'))     # Segunda camada densa
+    model.add(Dropout(0.5))                      # Outro Dropout
+    model.add(Dense(num_classes, activation='softmax'))  # Camada de saída
 
     model.compile(loss=loss_func,
                   optimizer=optimizer,

@@ -1,0 +1,24 @@
+\begin{thebibliography}{}
+
+\bibitem[Abadi et~al. 2015]{tensorflow2015-whitepaper}
+Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., Corrado,
+  G.~S., Davis, A., Dean, J., Devin, M., Ghemawat, S., Goodfellow, I., Harp,
+  A., Irving, G., Isard, M., Jia, Y., Jozefowicz, R., Kaiser, L., Kudlur, M.,
+  Levenberg, J., Man\'{e}, D., Monga, R., Moore, S., Murray, D., Olah, C.,
+  Schuster, M., Shlens, J., Steiner, B., Sutskever, I., Talwar, K., Tucker, P.,
+  Vanhoucke, V., Vasudevan, V., Vi\'{e}gas, F., Vinyals, O., Warden, P.,
+  Wattenberg, M., Wicke, M., Yu, Y., and Zheng, X. (2015).
+\newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems.
+\newblock Software available from tensorflow.org.
+
+\bibitem[Chollet et~al. 2015]{chollet2015keras}
+Chollet, F. et~al. (2015).
+\newblock Keras.
+
+\bibitem[Clanuwat et~al. 2018]{DBLP:journals/corr/abs-1812-01718}
+Clanuwat, T., Bober{-}Irizar, M., Kitamoto, A., Lamb, A., Yamamoto, K., and Ha,
+  D. (2018).
+\newblock Deep learning for classical japanese literature.
+\newblock {\em CoRR}, abs/1812.01718.
+
+\end{thebibliography}
