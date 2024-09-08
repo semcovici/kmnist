@@ -11,10 +11,9 @@ O Kuzushiji-MNIST possui um total de 10 classes, sendo cada uma delas um caracte
 
 # Resultados obtidos
 
-Os resultados obtidos podem ser vistos no relatório disponível em relatorio/main.pod
+Os resultados obtidos podem ser vistos no relatório que está no arquivo `relatorio/relatorio.pdf`.
 
-
-# Instruções
+# Instruções de execução
 
 ## 1. Configurar ambiente
 
@@ -43,9 +42,9 @@ Dessa forma o dataset irá ser baixado e colocado na pasta `data/`
 
 ## 3. Reproduzir experimentos
 
-Para reproduzir os experimentos basta rodar o notebook `notebooks/classification.ipynb` para treinar e testar os modelos. Assim, os melhores modelos serão salvos no diretório `models`, os logs do treinamento dos modelos irão constar no diretório `logs` e os resultados dos modelos no conjunto de treino e de teste irão estar no diretório `results`.
+Para reproduzir os experimentos basta executar o notebook `notebooks/1.classification.ipynb` para treinar e testar os modelos. Assim, os melhores modelos serão salvos no diretório `models`, os logs do treinamento dos modelos irão constar no diretório `logs` e os resultados dos modelos no conjunto de treino e de teste irão estar no diretório `results`.
 
-Após reproduzir os resultados, é possível através do notebook `notebooks/2.results_analysis.ipynb` gerar os gráficos de desempenho do modelo, que estarão no diretório `images/results_plt/`, e também gerar as tabelas de com as métricas de classificação (acurácia, recall, precision, F1, etc) que estarão no diretório `results/metrics/`.
+Após reproduzir os gráficos e tabelas com os resultados, é possível através do notebook `notebooks/2.results_analysis.ipynb` gerar os gráficos de desempenho do modelo no treinamento, que estarão no diretório `images/results_plt/`, e também gerar as tabelas de com as métricas de classificação (acurácia, recall, precision, F1, etc) que estarão no diretório `results/metrics/`.
 
 Para obter as imagens das arquiteturas dos modelos e dos kernels, rode o notebook `notebooks/3.models_analysis.ipynb`. Para gerar a imagem da arquitetura do modelo, garanta que tem instalado em seu ambiente o graphviz, instale com `sudo apt install graphviz -y`
 

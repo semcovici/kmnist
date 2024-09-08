@@ -1,13 +1,13 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: main.aux
+The top-level auxiliary file: relatorio.aux
 The style file: sbc.bst
 Database file #1: sbc-template.bib
 Warning--entry type for "chollet2015keras" isn't style-file defined
 --line 20 of file sbc-template.bib
 You've used 3 entries,
             1935 wiz_defined-function locations,
-            487 strings with 4830 characters,
+            487 strings with 4840 characters,
 and the built_in function-call counts, 2180 in all, are:
 = -- 171
 > -- 249
