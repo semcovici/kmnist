@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex relatorio"] 1725824912 "relatorio.aux" "relatorio.bbl" "relatorio" 1725824913
+["bibtex relatorio"] 1725826699 "relatorio.aux" "relatorio.bbl" "relatorio" 1725827293
   "./sbc.bst" 1725677370 21863 e2f961827e28074ef5a2bc27ccb7b310 ""
-  "relatorio.aux" 1725824912 3273 935d09a833bbd3a844806bb85d946206 "pdflatex"
+  "relatorio.aux" 1725827293 3273 74e22bd4381fb0ea81f79541997c005d "pdflatex"
   "sbc-template.bib" 1725773690 2005 e15eca070a1f83c34e499362a9e3959b ""
   (generated)
   "relatorio.bbl"
   "relatorio.blg"
-["pdflatex"] 1725824912 "/home/semcovici/pesquisa/kmnist/relatorio/relatorio.tex" "relatorio.pdf" "relatorio" 1725824913
+["pdflatex"] 1725827292 "/home/semcovici/pesquisa/kmnist/relatorio/relatorio.tex" "relatorio.pdf" "relatorio" 1725827293
   "../images/kernels_plt/model_cnn_layer_0_kernel_plot.png" 1725821371 3738 1e382099717d3728e5933fa52ae74c66 ""
   "../images/kernels_plt/model_cnn_layer_1_kernel_plot.png" 1725821372 7484 99eb78262d430b72a8ae82da473a020a ""
   "../images/kmnist_examples.png" 1724612771 142819 c5038588ed1957720fabf38bae18c613 ""
@@ -18,7 +18,7 @@
   "../images/results_plt/fcnn_com_data_augmentation_loss_progress.png" 1725821204 33395 a735dcfae73a486bfa08d35a5bcc7237 ""
   "../images/results_plt/fcnn_loss_progress.png" 1725821202 28903 f7fb5b0a51ef42559e218e71668c72e3 ""
   "/etc/texmf/web2c/texmf.cnf" 1725639074 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/semcovici/pesquisa/kmnist/relatorio/relatorio.tex" 1725824815 14207 905ecacc1cfd8db08bb6889ebf0632a9 ""
+  "/home/semcovici/pesquisa/kmnist/relatorio/relatorio.tex" 1725827292 17428 33b9151311aeebc0338a227b90b47c6b ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -95,9 +95,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1725639080 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1725639085 1435927 210ca80d6abd49dfefb70d4ca521dfa7 ""
   "caption2.sty" 1725677370 15189 50845fba222dc25666abc3397b231fab ""
-  "relatorio.aux" 1725824912 3273 935d09a833bbd3a844806bb85d946206 "pdflatex"
-  "relatorio.bbl" 1725824912 1104 14f52156e65b49092eac068dd4ce7e34 "bibtex relatorio"
-  "relatorio.tex" 1725824815 14207 905ecacc1cfd8db08bb6889ebf0632a9 ""
+  "relatorio.aux" 1725827293 3273 74e22bd4381fb0ea81f79541997c005d "pdflatex"
+  "relatorio.bbl" 1725826699 1104 14f52156e65b49092eac068dd4ce7e34 "bibtex relatorio"
+  "relatorio.tex" 1725827292 17428 33b9151311aeebc0338a227b90b47c6b ""
   "sbc-template.sty" 1725677370 5280 0a277450ee6cfc82a68e4b0b0f92e15e ""
   (generated)
   "relatorio.aux"
